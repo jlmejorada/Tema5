@@ -2,6 +2,7 @@ package ejercicio01;
 
 /**
  * Una clase para definir la cuenta corriente de un cliente
+ * 
  * @author jlmejorada
  */
 public class CuentaCorriente {
@@ -21,22 +22,29 @@ public class CuentaCorriente {
 
 	/**
 	 * Constructor con parametros DNI del titular de la cuenta y un saldo inicial.
-	 * @param dni Variable String
+	 * 
+	 * @param dni   Variable String
 	 * @param saldo Varible double
 	 */
-	public CuentaCorriente(String dni, Double saldo) {
-		this.dni = dni;
+	CuentaCorriente(String dni, Double saldo) {
+		if (dni != null && !dni.equals("")) {
+			this.dni = dni;
+		}
 		this.saldo = saldo;
 	}
 
 	/**
 	 * Constructor con parametros Con el DNI del cliente, nombre y el saldo inicial.
-	 * @param dni Variable String
+	 * 
+	 * @param dni    Variable String
 	 * @param nombre Variable String
-	 * @param saldo Variable double
+	 * @param saldo  Variable double
 	 */
-	public CuentaCorriente(String dni, String nombre, Double saldo) {
-		this.dni = dni;
+	CuentaCorriente(String dni, String nombre, Double saldo) {
+		// Si no es nulo o cadena vacia
+		if (dni != null && !dni.equals("")) {
+			this.dni = dni;
+		}
 		this.nombre = nombre;
 		this.saldo = saldo;
 	}
@@ -46,15 +54,41 @@ public class CuentaCorriente {
 	 * existe saldo suficiente. Si es posible llevar a cabo la operación se resta la
 	 * cantidad a sacar al saldo de la cuenta.
 	 * 
-	 * @param saldo Variable que tiene el saldo inicial de la cuenta del 
+	 * @param saldo Variable que tiene el saldo inicial de la cuenta del
 	 * @return true si se realiza la operación y false si no
 	 */
-	public boolean operacionRetirada(double retirada) {
-		//Variable que recoge si la operación se ha realizado con exito
-		boolean operacionEfectuada=false;
-		
-		//Devolvemos si se ha realizado la operación
+	boolean operacionRetirada(double retirada) {
+		// Variable que recoge si la operación se ha realizado con exito
+		boolean operacionEfectuada = false;
+		// Si el saldo es superior o igual a lo que se intenta sacar
+		if (this.saldo >= retirada) {
+			// Marcamos la operación como true
+			operacionEfectuada = true;
+			// Y lo retiramos del saldo
+			this.saldo -= retirada;
+		}
+		// Devolvemos si se ha realizado la operación
 		return operacionEfectuada;
+	}
+
+	/**
+	 * se incrementa el saldo.
+	 * 
+	 * @param ingreso Dinero que se desea ingresar
+	 */
+	void operacionIgreso(double ingreso) {
+		// Añadimos el dinero al saldo
+		this.saldo += ingreso;
+	}
+
+	/**
+	 * muestra la información disponible de la cuenta corriente.
+	 * 
+	 */
+	void consulta() {
+		System.out.println("Nombre del titular: " + nombre);
+		System.out.println("Dni del titular: " + dni);
+		System.out.println("Saldo de la cuenta: " + saldo);
 	}
 
 }
