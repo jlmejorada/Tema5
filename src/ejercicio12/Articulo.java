@@ -1,7 +1,7 @@
 package ejercicio12;
 
 /**
- * Contiene las funciones principales de la clase articulo
+ * Contiene la estructura de la clase articulo
  */
 public class Articulo {
 
@@ -114,7 +114,32 @@ public class Articulo {
 		return codigo;
 	}
 	
+	/**
+	 * Devuelve toda la información del objeto en una cadena
+	 * @return 
+	 */
+	@Override
+	public String toString() {
+		String cadena="";
+		cadena += "Codigo: " + this.codigo + "\n";
+		cadena += "Descripción: " + this.descripcion + "\n";
+		cadena += "Precio de compra: " + this.precioCompra + "\n";
+		cadena += "Precio de venta: " + this.precioVenta + "\n";
+		cadena += "Stock: " + this.stock + "\n";
+		cadena += "----------------------------------------------------";
+		return cadena;
+	}
 	
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean sonIguales=false;
+		Articulo art = (Articulo) obj;
+		if (this.codigo == art.codigo) {
+			sonIguales = true;
+		}
+		return sonIguales;
+	}
 	
 
 }
