@@ -64,6 +64,7 @@ public class CuentaCorriente {
 	/**
 	 * 
 	 */
+	@Override
 	public String toString() {
 		String cadena = "";
 
@@ -75,7 +76,8 @@ public class CuentaCorriente {
 
 		return cadena;
 	}
-	/**
+	
+	@Override
 	public boolean equals(Object obj) {
 		boolean esIgual=false;
 		CuentaCorriente cc = (CuentaCorriente) obj;
@@ -84,6 +86,6 @@ public class CuentaCorriente {
 		}
 		return esIgual;
 	}
-	**/
+	
 
 }

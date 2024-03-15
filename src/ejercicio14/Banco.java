@@ -67,4 +67,21 @@ public class Banco {
 		}
 		return posicion;
 	}
+	
+	/**
+	public static int buscaObjeto(CuentaCorriente contacto) {
+		int pos = -1;
+		int cont=0;
+		while(cont<usuario.length && pos==-1) {
+			if (usuario[cont]!=null && usuario[cont].equals(contacto)) {
+				pos=cont;
+			}
+			
+			cont++;
+		}
+		return pos;
+	}
+	**/
+	
+	
 }
